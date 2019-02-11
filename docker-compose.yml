@@ -1,0 +1,27 @@
+version: '3'
+services:
+    crowd_control:
+        build:
+            context: .
+            dockerfile: Dockerfile_CC
+        container_name: crowd_control
+    theark:
+        build:
+            context: ./
+            dockerfile: Dockerfile_Ark
+        container_name: 'theark'
+        network_mode: 'host'
+        privileged: true
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/"]
+            interval: '10s'
+            timeout: '10s'
+            retries: 5
+    sangheili:
+        build: 'sangheili/'
+        container_name: 'sangheili'
+        network_mode: 'host'
+        privileged: true
+        restart: on-failure
+        depends_on:
+            - theark
