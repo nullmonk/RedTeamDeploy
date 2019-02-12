@@ -12,6 +12,8 @@ services:
         container_name: 'theark'
         network_mode: 'host'
         privileged: true
+        environment:
+            - ARK_LISTEN_IP=127.0.0.1
         healthcheck:
             test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/"]
             interval: '10s'
@@ -25,3 +27,6 @@ services:
         restart: on-failure
         depends_on:
             - theark
+    proxy:
+        build: 'proxy/'
+        network_mode: 'host'
