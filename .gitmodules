@@ -1,0 +1,3 @@
+[submodule "pwnboard"]
+	path = pwnboard
+	url = https://github.com/micahjmartin/pwnboard
