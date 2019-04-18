@@ -19,6 +19,8 @@ services:
             - LIBRARY_USER=${LIBRARY_USER}
             - LIBRARY_PASS=${LIBRARY_PASS}
             - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
+        volumes:
+            - ./files:/app/files
 
     pwnboard:
         build: pwnboard/
