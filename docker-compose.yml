@@ -21,10 +21,7 @@ services:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}"
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
-            - PWN_THEME=blue
-            #- PWN_THEME="green"
-            - HOST_TIMEOUT=3   # Minutes before a host has 'expired'
-            - CACHE_TIME=-1    # Disable cache
+            - HOST_TIMEOUT=3
     
     redis:
         image: redis:alpine
