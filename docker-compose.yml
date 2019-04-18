@@ -22,6 +22,8 @@ services:
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
             - HOST_TIMEOUT=3
+        volumes:
+            - ./board.json:/opt/pwnboard/board.json:ro
     
     redis:
         image: redis:alpine
