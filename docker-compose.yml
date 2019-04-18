@@ -6,7 +6,7 @@ services:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
     reach:
-        build: https://github.com/degenerat3/reach
+        build: https://github.com/degenerat3/reach.git
         environment:
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
