@@ -3,13 +3,13 @@ services:
     crowd_control:
         build: crowd_control/
         environment:
-            - PWNBOARD_URL=http://pwnboard.win/generic
+            - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
     reach:
         build: https://github.com/degenerat3/reach
         environment:
-            - SYSLOG_HOST=logs.pwnboard.win
-            - SYSLOG_PORT=5000
+            - "SYSLOG_HOST=${SAWMILL_HOST}"
+            - "SYSLOG_PORT=${SAWMILL_PORT}"
             - FLASK_DEBUG=False
     pwnboard:
         build: pwnboard/
