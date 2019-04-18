@@ -1,32 +1,36 @@
 version: '3'
 services:
     crowd_control:
-        build:
-            context: .
-            dockerfile: Dockerfile_CC
-        container_name: crowd_control
-    theark:
-        build:
-            context: ./
-            dockerfile: Dockerfile_Ark
-        container_name: 'theark'
-        network_mode: 'host'
-        privileged: true
+        build: crowd_control/
         environment:
-            - ARK_LISTEN_IP=127.0.0.1
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/"]
-            interval: '10s'
-            timeout: '10s'
-            retries: 5
-    sangheili:
-        build: 'sangheili/'
-        container_name: 'sangheili'
-        network_mode: 'host'
-        privileged: true
-        restart: on-failure
-        depends_on:
-            - theark
+            - PWNBOARD_URL=http://pwnboard.win/generic
+            - FLASK_DEBUG=False
+    reach:
+        build: https://github.com/degenerat3/reach
+        environment:
+            - SYSLOG_HOST=logs.pwnboard.win
+            - SYSLOG_PORT=5000
+            - FLASK_DEBUG=False
+    pwnboard:
+        build: pwnboard/
+        environment:
+            - FLASK_DEBUG=false
+            - FLASK_PORT=5000
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}"
+            - "SYSLOG_HOST=${SAWMILL_HOST}"
+            - "SYSLOG_PORT=${SAWMILL_PORT}"
+            - PWN_THEME=blue
+            #- PWN_THEME="green"
+            - HOST_TIMEOUT=3   # Minutes before a host has 'expired'
+            - CACHE_TIME=-1    # Disable cache
+    
+    redis:
+        image: redis:alpine
+        restart: always
+
     proxy:
-        build: 'proxy/'
-        network_mode: 'host'
+        build: proxy/
+        ports:
+            - 80:80
