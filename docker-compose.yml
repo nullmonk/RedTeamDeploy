@@ -11,6 +11,15 @@ services:
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
             - FLASK_DEBUG=False
+    library:
+        build: https://github.com/RITRedteam/TheLibrary.git
+        environment:
+            - FLASK_DEBUG=false
+            - FLASK_PORT=5000
+            - LIBRARY_USER=${LIBRARY_USER}
+            - LIBRARY_PASS=${LIBRARY_PASS}
+            - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
+
     pwnboard:
         build: pwnboard/
         environment:
