@@ -23,7 +23,7 @@ services:
             - ./files:/app/files
 
     pwnboard:
-        build: pwnboard/
+        build: https://github.com/micahjmartin/pwnboard.git
         environment:
             - FLASK_DEBUG=false
             - FLASK_PORT=5000
