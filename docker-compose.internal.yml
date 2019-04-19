@@ -7,9 +7,9 @@ services:
         environment:
             - FLASK_DEBUG=false
             - FLASK_PORT=5000
-            - ARK_DATABASE=/opt/theark/theark.sqlite
+            - ARK_DATABASE=./db/theark.sqlite
         volumes:
-            - ./theark.sqlite:/opt/theark/theark.sqlite
+            - ./theark:/opt/theark/db/
         healthcheck:
             test: ["CMD", "curl", "-f", "http://0.0.0.0/"]
             interval: '10s'
