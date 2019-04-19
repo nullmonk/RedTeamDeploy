@@ -22,6 +22,7 @@ services:
         environment:
             - address_server=http://theark
             - reserve_addresses=True
+            - address_count=50
         restart: on-failure
         depends_on:
             - theark
