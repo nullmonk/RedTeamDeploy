@@ -11,7 +11,7 @@ services:
         volumes:
             - ./arkdb:/opt/theark/db/
         healthcheck:
-            test: ["CMD", "curl", "-f", "http://theark/"]
+            test: ["CMD", "curl", "-f", "http://0.0.0.0/"]
             interval: '10s'
             timeout: '10s'
             retries: 5
@@ -20,7 +20,7 @@ services:
         network_mode: 'host'
         privileged: true
         environment:
-            - address_server=http://theark
+            - address_server=http://0.0.0.0
             - reserve_addresses=True
             - address_count=50
         restart: on-failure

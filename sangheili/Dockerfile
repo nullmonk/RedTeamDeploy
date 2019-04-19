@@ -11,5 +11,4 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install requests
 
 # Run the app
-ENTRYPOINT [ "python3" ]
-CMD [ "sangheili.py" ]
+CMD ["python3", "sangheili.py"]
