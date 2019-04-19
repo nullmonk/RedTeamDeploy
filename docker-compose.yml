@@ -29,7 +29,7 @@ services:
             - FLASK_PORT=5000
             - REDIS_HOST=redis
             - REDIS_PORT=6379
-            - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}"
+            - "PWNBOARD_URL=${PWNBOARD_URL}"
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
             - CACHE_TIME=-1
