@@ -9,8 +9,7 @@ RUN git clone --branch dev https://github.com/RITRedteam/Sangheili /opt/sangheil
 WORKDIR /opt/sangheili
 RUN pip3 install -r requirements.txt
 RUN pip3 install requests
-RUN rm config.yml
-COPY config.yml config.yml
+
 # Run the app
 ENTRYPOINT [ "python3" ]
 CMD [ "sangheili.py" ]

@@ -16,7 +16,7 @@ services:
             timeout: '10s'
             retries: 5
     sangheili:
-        build: https://github.com/ritredteam/sangheili.git
+        build: 'sangheili/'
         network_mode: 'host'
         privileged: true
         environment:
