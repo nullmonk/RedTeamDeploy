@@ -1,0 +1,29 @@
+version: '3'
+services:
+    theark:
+        build: https://github.com/ritredteam/theark.git
+        network_mode: 'host'
+        privileged: true
+        environment:
+            - FLASK_HOST=10.4.1.10
+            - FLASK_DEBUG=false
+            - FLASK_PORT=80
+            - ARK_DATABASE=./db/theark.sqlite
+        volumes:
+            - ./theark:/opt/theark/db/:rw
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://10.4.1.10"]
+            interval: '10s'
+            timeout: '10s'
+            retries: 5
+    sangheili:
+        build: 'sangheili/'
+        network_mode: 'host'
+        privileged: true
+        environment:
+            - address_server=http://10.4.1.10
+            - reserve_addresses=True
+            - address_count=50
+        restart: on-failure
+        depends_on:
+            - theark

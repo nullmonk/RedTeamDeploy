@@ -6,25 +6,36 @@ services:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
     reach:
-        build: https://github.com/degenerat3/reach
+        build: https://github.com/degenerat3/reach.git
         environment:
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
             - FLASK_DEBUG=False
+    library:
+        build: https://github.com/RITRedteam/TheLibrary.git
+        environment:
+            - FLASK_DEBUG=false
+            - FLASK_PORT=5000
+            - LIBRARY_USER=${LIBRARY_USER}
+            - LIBRARY_PASS=${LIBRARY_PASS}
+            - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
+        volumes:
+            - ./files:/app/files
+
     pwnboard:
-        build: pwnboard/
+        build: https://github.com/micahjmartin/pwnboard.git
         environment:
             - FLASK_DEBUG=false
             - FLASK_PORT=5000
             - REDIS_HOST=redis
             - REDIS_PORT=6379
-            - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}"
+            - "PWNBOARD_URL=${PWNBOARD_URL}"
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
-            - PWN_THEME=blue
-            #- PWN_THEME="green"
-            - HOST_TIMEOUT=3   # Minutes before a host has 'expired'
-            - CACHE_TIME=-1    # Disable cache
+            - CACHE_TIME=-1
+            - HOST_TIMEOUT=3
+        volumes:
+            - ./board.json:/opt/pwnboard/board.json:ro
     
     redis:
         image: redis:alpine
