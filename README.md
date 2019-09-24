@@ -13,6 +13,11 @@ These services are meant for Red/Blue security competitions, they will be runnin
 __Scale__  
 These services are, for the most part, very tiny. For the cloud deployment, all of the services can reasonably be deployed on a box with 4GB of RAM and a few GB of storage. You COULD run them on seperate hosts but for the most part that should not be an issue.
 
+__Improvements__  
+There are other unique tools which could help with our deployments. OInvestigate these further to determine usability:
+- https://github.com/jwilder/nginx-proxy
+- https://github.com/khast3x/Redcloud
+
 ## Deployment Options
 
 ### Cloud Deployment
@@ -59,3 +64,6 @@ docker-compose -f deployments/cloud.yml up -d
 * Get the Sawmill deployment running
 * pwnboard README
 * Get Sangheili to point to the Ark properly
+* Develop testing script for all the services as a healthcheck
+
+
