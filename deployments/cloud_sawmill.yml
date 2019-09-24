@@ -1,0 +1,54 @@
+version: '3'
+services:
+    crowdcontrol:
+        build: images/crowdcontrol/
+        environment:
+            - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
+            - FLASK_DEBUG=False
+    chainsaw:
+        build: https://github.com/degenerat3/chainsaw.git
+        environment:
+            - "SYSLOG_HOST=${SAWMILL_HOST}"
+            - "SYSLOG_PORT=${SAWMILL_PORT}"
+            - FLASK_DEBUG=False
+    library:
+        build: https://github.com/RITRedteam/TheLibrary.git
+        environment:
+            - FLASK_DEBUG=false
+            - FLASK_PORT=5000
+            - LIBRARY_USER=${LIBRARY_USER}
+            - LIBRARY_PASS=${LIBRARY_PASS}
+            - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
+        volumes:
+            # The files that are held are persistent across image starts
+            - ./files:/app/files
+
+    pwnboard:
+        build: https://github.com/micahjmartin/pwnboard.git
+        environment:
+            - FLASK_DEBUG=false
+            - FLASK_PORT=5000
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - "PWNBOARD_URL=${PWNBOARD_URL}"
+            - "SYSLOG_HOST=${SAWMILL_HOST}"
+            - "SYSLOG_PORT=${SAWMILL_PORT}"
+            - CACHE_TIME=-1
+            - HOST_TIMEOUT=3
+        volumes:
+            - images/pwnboard/board.json:/opt/pwnboard/board.json:ro
+    
+    # Required for the pwnboard
+    redis:
+        image: redis:alpine
+        restart: always
+
+    # Forwards all the different domains to the correct server
+    # See nginx.conf to modify the behavior
+    proxy:
+        build: images/proxy/
+        ports:
+            - 80:80
+
+
+# TODO add the stuff for sawmill here

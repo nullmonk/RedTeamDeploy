@@ -2,5 +2,5 @@
 server: 0.0.0.0
 port: 1080
 
-address_server: http://0.0.0.0:5000
+address_server: http://0.0.0.0:5000   # Overridden in .env
 reserve_addresses: true

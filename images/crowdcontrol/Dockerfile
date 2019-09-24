@@ -5,7 +5,7 @@ RUN apk add --update python3 tzdata git
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN git clone https://github.com/degenerat3/crowd_control /opt/cc
+RUN git clone https://github.com/degenerat3/crowdcontrol /opt/cc
 
 WORKDIR /opt/cc/server
 RUN pip3 install -r requirements.txt

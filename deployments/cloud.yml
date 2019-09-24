@@ -1,7 +1,7 @@
 version: '3'
 services:
-    crowd_control:
-        build: crowd_control/
+    crowdcontrol:
+        build: images/crowdcontrol/
         environment:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
@@ -20,6 +20,7 @@ services:
             - LIBRARY_PASS=${LIBRARY_PASS}
             - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
         volumes:
+            # The files that are held are persistent across image starts
             - ./files:/app/files
 
     pwnboard:
@@ -35,13 +36,16 @@ services:
             - CACHE_TIME=-1
             - HOST_TIMEOUT=3
         volumes:
-            - ./board.json:/opt/pwnboard/board.json:ro
+            - images/pwnboard/board.json:/opt/pwnboard/board.json:ro
     
+    # Required for the pwnboard
     redis:
         image: redis:alpine
         restart: always
 
+    # Forwards all the different domains to the correct server
+    # See nginx.conf to modify the behavior
     proxy:
-        build: proxy/
+        build: images/proxy/
         ports:
             - 80:80
