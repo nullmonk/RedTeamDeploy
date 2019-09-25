@@ -46,9 +46,15 @@ services:
     # Forwards all the different domains to the correct server
     # See nginx.conf to modify the behavior
     proxy:
-        build: images/proxy/
+        build: proxy/
         ports:
             - 80:80
+        networks:
+            # Connect to the normal network and to Sawmill network
+            - default
+            - sawmill
 
-
-# TODO add the stuff for sawmill here
+networks:
+   sawmill:
+      external:
+         name: sawmill_elk
