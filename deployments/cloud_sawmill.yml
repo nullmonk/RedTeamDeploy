@@ -21,7 +21,7 @@ services:
             - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
         volumes:
             # The files that are held are persistent across image starts
-            - ./files:/app/files
+            - ./images/library:/app/files
 
     pwnboard:
         build: https://github.com/micahjmartin/pwnboard.git
@@ -36,7 +36,7 @@ services:
             - CACHE_TIME=-1
             - HOST_TIMEOUT=3
         volumes:
-            - images/pwnboard/board.json:/opt/pwnboard/board.json:ro
+            - ./images/pwnboard/board.json:/opt/pwnboard/board.json:ro
     
     # Required for the pwnboard
     redis:
@@ -46,7 +46,7 @@ services:
     # Forwards all the different domains to the correct server
     # See nginx.conf to modify the behavior
     proxy:
-        build: proxy/
+        build: images/proxy/
         ports:
             - 80:80
         networks:
