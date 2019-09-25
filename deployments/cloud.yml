@@ -49,3 +49,9 @@ services:
         build: images/proxy/
         ports:
             - 80:80
+        volumes:
+            # List all the servers that we want to proxy here
+            - ./images/proxy/servers/chainsaw.conf:/etc/nginx/conf.d/chainsaw.conf:ro
+            - ./images/proxy/servers/crowdcontrol.conf:/etc/nginx/conf.d/cc.conf:ro
+            - ./images/proxy/servers/library.conf:/etc/nginx/conf.d/library.conf:ro
+            - ./images/proxy/servers/pwnboard.conf:/etc/nginx/conf.d/pwnboard.conf:ro
