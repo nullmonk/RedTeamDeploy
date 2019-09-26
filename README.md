@@ -48,7 +48,7 @@ Running a deployment option should be as simple as starting that docker-compose 
     - [Sawmill](deployment/images/proxy/README.md)
     - [The Library](.env)
     - [The Ark](.env)
-
+- [ ] Update the Sawmill domain in the [env](.env) (Or leave it blank)
 
 Once everything is completed, you may run the following commands to get it up and running:
 ```
