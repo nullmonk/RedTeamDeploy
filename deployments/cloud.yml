@@ -1,7 +1,7 @@
 version: '3'
 services:
-    crowd_control:
-        build: crowd_control/
+    crowdcontrol:
+        build: images/crowdcontrol/
         environment:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
@@ -20,7 +20,8 @@ services:
             - LIBRARY_PASS=${LIBRARY_PASS}
             - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
         volumes:
-            - ./files:/app/files
+            # The files that are held are persistent across image starts
+            - ./images/library:/app/files
 
     pwnboard:
         build: https://github.com/micahjmartin/pwnboard.git
@@ -35,13 +36,22 @@ services:
             - CACHE_TIME=-1
             - HOST_TIMEOUT=3
         volumes:
-            - ./board.json:/opt/pwnboard/board.json:ro
+            - ./images/pwnboard/board.json:/opt/pwnboard/board.json:ro
     
+    # Required for the pwnboard
     redis:
         image: redis:alpine
         restart: always
 
+    # Forwards all the different domains to the correct server
+    # See nginx.conf to modify the behavior
     proxy:
-        build: proxy/
+        build: images/proxy/
         ports:
             - 80:80
+        volumes:
+            # List all the servers that we want to proxy here
+            - ./images/proxy/servers/chainsaw.conf:/etc/nginx/conf.d/chainsaw.conf:ro
+            - ./images/proxy/servers/crowdcontrol.conf:/etc/nginx/conf.d/cc.conf:ro
+            - ./images/proxy/servers/library.conf:/etc/nginx/conf.d/library.conf:ro
+            - ./images/proxy/servers/pwnboard.conf:/etc/nginx/conf.d/pwnboard.conf:ro
