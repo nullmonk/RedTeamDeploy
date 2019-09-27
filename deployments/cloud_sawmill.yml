@@ -16,9 +16,9 @@ services:
         environment:
             - FLASK_DEBUG=false
             - FLASK_PORT=5000
-            - LIBRARY_USER=${LIBRARY_USER}
-            - LIBRARY_PASS=${LIBRARY_PASS}
-            - LIBRARY_COOKIE_VAL=${LIBRARY_PASS}
+            - LIBRARY_USER=${REDTEAM_USER}
+            - LIBRARY_PASS=${REDTEAM_PASS}
+            - LIBRARY_COOKIE_VAL=${REDTEAM_PASS}
         volumes:
             # The files that are held are persistent across image starts
             - ./images/library:/app/files
