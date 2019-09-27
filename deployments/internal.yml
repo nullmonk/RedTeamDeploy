@@ -7,13 +7,13 @@ services:
         environment:
             - FLASK_HOST=${ARK_HOST}
             - FLASK_DEBUG=false
-            - FLASK_PORT=80
+            - FLASK_PORT=${ARK_PORT}
             - ARK_DATABASE=./db/theark.sqlite
             - ARK_CONFIG=./db/config.yml
         volumes:
             - ./images/theark:/opt/theark/db/:rw
         healthcheck:
-            test: ["CMD", "curl", "-f", "http://${ARK_HOST}"]
+            test: ["CMD", "curl", "-f", "${ARK_URL}"]
             interval: '10s'
             timeout: '10s'
             retries: 5
@@ -22,7 +22,7 @@ services:
         network_mode: 'host'
         privileged: true
         environment:
-            - address_server=http://${ARK_HOST}
+            - address_server=${ARK_URL}
             - reserve_addresses=True
             - address_count=20
         restart: on-failure

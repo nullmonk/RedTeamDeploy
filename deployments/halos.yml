@@ -11,7 +11,7 @@ services:
             # The number of IPs to use for this service
             - HALO_ADDR_COUNT=15
 
-            - THEARK_SERVER=http://${ARK_HOST}
+            - THEARK_SERVER=${ARK_URL}
             - THEARK_USER=${REDTEAM_USER}
             - THEARK_PASS=${REDTEAM_PASS}
             - THEARK_REGISTER=True
