@@ -26,7 +26,9 @@ services:
         environment:
             - address_server=http://${ARK_HOST}:${ARK_PORT}
             - reserve_addresses=True
-            - address_count=20
+            - address_count=15
+            - ARK_USERNAME=${REDTEAM_USER}
+            - ARK_PASSWORD=${REDTEAM_PASS}
         restart: on-failure
         depends_on:
             - theark
