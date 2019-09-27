@@ -6,4 +6,5 @@
 valid:
   - default # This will pull the network and netmask from the default gateway
 
-invalid:
+#invalid:
+#  - 10.4.0.0/16 # Dont use this network
