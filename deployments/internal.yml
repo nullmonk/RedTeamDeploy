@@ -8,6 +8,8 @@ services:
             - FLASK_HOST=${ARK_HOST}
             - FLASK_DEBUG=false
             - FLASK_PORT=${ARK_PORT}
+            - THEARK_USERNAME=${REDTEAM_USER}
+            - THEARK_PASSWORD=${REDTEAM_PASS}
             - ARK_DATABASE=./db/theark.sqlite
             - ARK_CONFIG=./db/config.yml
         volumes:
