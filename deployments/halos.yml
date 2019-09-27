@@ -1,6 +1,6 @@
 version: '3'
 services:
-    CrowdControlHalo:
+    halo_crowdcontrol:
         build: https://github.com/RITRedteam/TheArkHalo.git
         network_mode: 'host'
         privileged: true
