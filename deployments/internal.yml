@@ -15,7 +15,7 @@ services:
         volumes:
             - ./images/theark:/opt/theark/db/:rw
         healthcheck:
-            test: ["CMD", "curl", "-f", "${ARK_URL}"]
+            test: ["CMD", "curl", "-f", "http://${ARK_HOST}:${ARK_PORT}"]
             interval: '10s'
             timeout: '10s'
             retries: 5
@@ -24,7 +24,7 @@ services:
         network_mode: 'host'
         privileged: true
         environment:
-            - address_server=${ARK_URL}
+            - address_server=http://${ARK_HOST}:${ARK_PORT}
             - reserve_addresses=True
             - address_count=20
         restart: on-failure
