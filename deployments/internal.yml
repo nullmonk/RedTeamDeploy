@@ -11,14 +11,14 @@ services:
             - ARK_DATABASE=./db/theark.sqlite
             - ARK_CONFIG=./db/config.yml
         volumes:
-            - ./theark:/opt/theark/db/:rw
+            - ./images/theark:/opt/theark/db/:rw
         healthcheck:
             test: ["CMD", "curl", "-f", "http://${ARK_HOST}"]
             interval: '10s'
             timeout: '10s'
             retries: 5
     sangheili:
-        build: 'sangheili/'
+        build: 'images/sangheili/'
         network_mode: 'host'
         privileged: true
         environment:
