@@ -10,6 +10,9 @@ services:
             - HALO_UPSTREAM=http://cc.c2the.world
             # The number of IPs to use for this service
             - HALO_ADDR_COUNT=15
+    
+            # If the proxy needs to add a host header, use this value
+            - PROXY_HOST=cc.c2the.world
 
             - THEARK_SERVER=http://${ARK_HOST}:${ARK_PORT}
             - THEARK_USER=${REDTEAM_USER}
