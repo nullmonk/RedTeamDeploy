@@ -7,7 +7,7 @@ services:
         environment:  
             # Halo settings
             - HALO_NAME=CrowdControl
-            - HALO_UPSTEAM=http://cc.c2the.world
+            - HALO_UPSTREAM=http://cc.c2the.world
             # The number of IPs to use for this service
             - HALO_ADDR_COUNT=15
 
