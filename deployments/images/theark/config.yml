@@ -4,7 +4,9 @@
 # LAST UPDATED FOR UB
 
 valid:
-  - default # This will pull the network and netmask from the default gateway
+#  - default # This will pull the network and netmask from the default gateway
+  - 192.168.5.0/24
+  - 192.168.6.0/24
 
 #invalid:
 #  - 10.4.0.0/16 # Dont use this network
