@@ -37,3 +37,19 @@ services:
             - THEARK_USER=${REDTEAM_USER}
             - THEARK_PASS=${REDTEAM_PASS}
             - THEARK_REGISTER=True
+
+    halo_meteor:
+        build: https://github.com/RITRedteam/TheArkHalo.git
+        network_mode: 'host'
+        privileged: true
+        environment:  
+            # Halo settings
+            - HALO_NAME=Meteor
+            - HALO_UPSTREAM=http://pwnyour.systems
+            # The number of IPs to use for this service
+            - HALO_ADDR_COUNT=20
+    
+            - THEARK_SERVER=http://${ARK_HOST}:${ARK_PORT}
+            - THEARK_USER=${REDTEAM_USER}
+            - THEARK_PASS=${REDTEAM_PASS}
+            - THEARK_REGISTER=True
