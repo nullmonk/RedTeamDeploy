@@ -45,7 +45,7 @@ services:
         environment:  
             # Halo settings
             - HALO_NAME=Sovereignty
-            - HALO_UPSTREAM=http://ssh.bullecoin.com
+            - HALO_UPSTREAM=http://bullecoin.cash
             # The number of IPs to use for this service
             - HALO_ADDR_COUNT=20
 
