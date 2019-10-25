@@ -23,6 +23,8 @@ services:
             # The files that are held are persistent across image starts
             - ./images/library:/app/files
 
+    spin:
+        build: https://github.com/degenerat3/javascript-winwheel
     pwnboard:
         build: https://github.com/micahjmartin/pwnboard.git
         environment:
@@ -55,3 +57,4 @@ services:
             - ./images/proxy/servers/crowdcontrol.conf:/etc/nginx/conf.d/cc.conf:ro
             - ./images/proxy/servers/library.conf:/etc/nginx/conf.d/library.conf:ro
             - ./images/proxy/servers/pwnboard.conf:/etc/nginx/conf.d/pwnboard.conf:ro
+            - ./images/proxy/servers/spin.conf:/etc/nginx/conf.d/spin.conf:ro
