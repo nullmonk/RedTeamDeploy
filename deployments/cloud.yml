@@ -24,7 +24,7 @@ services:
             - ./images/library:/app/files
 
     spin:
-        build: https://github.com/degenerat3/javascript-winwheel
+        build: https://github.com/degenerat3/javascript-winwheel.git
     pwnboard:
         build: https://github.com/micahjmartin/pwnboard.git
         environment:
