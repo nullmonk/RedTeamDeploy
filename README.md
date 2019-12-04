@@ -41,11 +41,11 @@ Deploys internal services that require private IP addresses. Most often deployed
 
 ### Running and Setup
 Running a deployment option should be as simple as starting that docker-compose file. But first, make sure you have completed the following steps to get your competition going:
-- [ ] Update the [pwnboard topology](deployment/images/pwnboard/README.md)
-- [ ] Set up the correct domains in [`images/proxy/nginx.conf`](deployment/images/proxy/nginx.conf). Each service needs a unique domain name.
+- [ ] Update the [pwnboard topology](deployments/images/pwnboard/README.md)
+- [ ] Set up the correct domains in [`images/proxy/nginx.conf`](deployments/images/proxy/nginx.conf). Each service needs a unique domain name.
 - [ ] Forward all your domains to the correct IP address
 - [ ] Change the passwords for each of the relevant services:
-    - [Sawmill](deployment/images/proxy/README.md)
+    - [Sawmill](deployments/images/proxy/README.md)
     - [The Library](.env)
     - [The Ark](.env)
 - [ ] Update the Sawmill domain in the [env](.env) (Or leave it blank)
