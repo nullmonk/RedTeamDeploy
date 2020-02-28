@@ -9,7 +9,7 @@ services:
             - HALO_NAME=CrowdControl
             - HALO_UPSTREAM=http://cc.c2the.world
             # The number of IPs to use for this service
-            - HALO_ADDR_COUNT=20
+            - HALO_ADDR_COUNT=10
     
             # If the proxy needs to add a host header, use this value
             - PROXY_HOST=cc.c2the.world
@@ -19,52 +19,20 @@ services:
             - THEARK_PASS=${REDTEAM_PASS}
             - THEARK_REGISTER=True
     
-    halo_chainsaw:
+    halo_paragon:
         build: https://github.com/RITRedteam/TheArkHalo.git
         network_mode: 'host'
         privileged: true
         environment:  
             # Halo settings
-            - HALO_NAME=Chainsaw
-            - HALO_UPSTREAM=http://chainsaw.c2the.world
+            - HALO_NAME=ParagonC2
+            - HALO_UPSTREAM=http://172.16.0.129
             # The number of IPs to use for this service
             - HALO_ADDR_COUNT=20
     
             # If the proxy needs to add a host header, use this value
-            - PROXY_HOST=chainsaw.c2the.world
+            - PROXY_HOST=172.16.0.129
 
-            - THEARK_SERVER=http://${ARK_HOST}:${ARK_PORT}
-            - THEARK_USER=${REDTEAM_USER}
-            - THEARK_PASS=${REDTEAM_PASS}
-            - THEARK_REGISTER=True
-
-    halo_sovereignty:
-        build: https://github.com/RITRedteam/TheArkHalo.git
-        network_mode: 'host'
-        privileged: true
-        environment:  
-            # Halo settings
-            - HALO_NAME=Sovereignty
-            - HALO_UPSTREAM=http://bullecoin.cash
-            # The number of IPs to use for this service
-            - HALO_ADDR_COUNT=20
-
-            - THEARK_SERVER=http://${ARK_HOST}:${ARK_PORT}
-            - THEARK_USER=${REDTEAM_USER}
-            - THEARK_PASS=${REDTEAM_PASS}
-            - THEARK_REGISTER=True
-
-    halo_meteor:
-        build: https://github.com/RITRedteam/TheArkHalo.git
-        network_mode: 'host'
-        privileged: true
-        environment:  
-            # Halo settings
-            - HALO_NAME=Meteor
-            - HALO_UPSTREAM=http://pwnyour.systems
-            # The number of IPs to use for this service
-            - HALO_ADDR_COUNT=20
-    
             - THEARK_SERVER=http://${ARK_HOST}:${ARK_PORT}
             - THEARK_USER=${REDTEAM_USER}
             - THEARK_PASS=${REDTEAM_PASS}
