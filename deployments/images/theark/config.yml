@@ -1,12 +1,8 @@
-# Config file where you can blacklist certain IPs/networks
-# or specify certain networks
-
-# LAST UPDATED FOR UB
-
 valid:
-#  - default # This will pull the network and netmask from the default gateway
-  - 192.168.5.0/24
-  - 192.168.6.0/24
+  - 10.128.0.0/9
 
-#invalid:
-#  - 10.4.0.0/16 # Dont use this network
+invalid:
+  - 10.255.255.0/24
+  - 10.128.0.0/16
+  - 10.129.0.0/16
+  - 10.130.0.0/16 
