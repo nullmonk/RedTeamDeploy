@@ -5,26 +5,10 @@ services:
         environment:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
-    chainsaw:
-        build: https://github.com/degenerat3/chainsaw.git
-        environment:
-            - "SYSLOG_HOST=${SAWMILL_HOST}"
-            - "SYSLOG_PORT=${SAWMILL_PORT}"
-            - FLASK_DEBUG=False
-    library:
-        build: https://github.com/RITRedteam/TheLibrary.git
-        environment:
-            - FLASK_DEBUG=false
-            - FLASK_PORT=5000
-            - LIBRARY_USER=${REDTEAM_USER}
-            - LIBRARY_PASS=${REDTEAM_PASS}
-            - LIBRARY_COOKIE_VAL=${REDTEAM_PASS}
-        volumes:
-            # The files that are held are persistent across image starts
-            - ./images/library:/app/files
 
     spin:
         build: https://github.com/degenerat3/javascript-winwheel.git
+ 
     pwnboard:
         build: https://github.com/micahjmartin/pwnboard.git
         environment:
@@ -53,8 +37,6 @@ services:
             - 80:80
         volumes:
             # List all the servers that we want to proxy here
-            - ./images/proxy/servers/chainsaw.conf:/etc/nginx/conf.d/chainsaw.conf:ro
             - ./images/proxy/servers/crowdcontrol.conf:/etc/nginx/conf.d/cc.conf:ro
-            - ./images/proxy/servers/library.conf:/etc/nginx/conf.d/library.conf:ro
             - ./images/proxy/servers/pwnboard.conf:/etc/nginx/conf.d/pwnboard.conf:ro
             - ./images/proxy/servers/spin.conf:/etc/nginx/conf.d/spin.conf:ro

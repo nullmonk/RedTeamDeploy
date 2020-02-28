@@ -1,77 +1,109 @@
 {
-    "name": "Irsec2019",
-    "date": "4/20/19",
-    "teams": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "name": "ISTS2020",
+    "date": "2/28/20",
+    "teams": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
     "networks": [
         {
-            "name": "internal",
-            "ip": "10.2.x",
+            "ip": "10.x.1",
+            "name": "LAN",
             "hosts": [
                 {
-                    "name": "troy",
-                    "os": "Windows Server 2012 R2",
-                    "ip": "1",
-                    "services": "ad/dns"
+                    "ip": "10",
+                    "name": "acidburn",
+                    "os": "Parrot OS"
                 },
                 {
-                    "name": "gabriella",
-                    "os": "Fedora 29",
-                    "ip": "2",
-                    "services": "mail"
+                    "ip": "20",
+                    "name": "viral",
+                    "os": "Debian 10"
                 },
                 {
-                    "name": "chad",
-                    "os": "Windows Server 2019",
-                    "ip": "3",
-                    "services": "mssql"
+                    "ip": "30",
+                    "name": "lordnikon",
+                    "os": "Win Server 2019"
                 },
                 {
-                    "name": "jason",
-                    "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
+                    "ip": "40",
+                    "name": "cerealkiller",
+                    "os": "Win 10"
                 },
                 {
-                    "name": "zeke",
-                    "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
+                    "ip": "50",
+                    "name": "zerocool",
+                    "os": "Win 10"
                 },
                 {
-                    "name": "martha",
-                    "os": "Solaris 11",
-                    "ip": "DHCP",
-                    "services": "client"
+                    "ip": "254",
+                    "name": "cptcrunch",
+                    "os": "CentOS"
                 }
             ]
         },
         {
-            "name": "cloud",
-            "ip": "10.3.x",
+            "ip": "10.x.2",
+            "name": "Dev Cloud",
             "hosts": [
                 {
-                    "name": "sharpay",
-                    "os": "Ubuntu 16.04.6",
-                    "ip": "1",
-                    "services": "docker"
+                    "ip": "10",
+                    "name": "pwnsauce",
+                    "os": "Fedora 30"
                 },
                 {
-                    "name": "kelsi",
-                    "os": "FreeBSD 12.0",
-                    "ip": "2",
-                    "services": "flask/web"
+                    "ip": "20",
+                    "name": "theplague",
+                    "os": "React OS (Windows)"
                 },
                 {
-                    "name": "taylor",
-                    "os": "Centos 7.6.1910",
-                    "ip": "3",
-                    "services": "bind/dns"
+                    "ip": "30",
+                    "name": "anarchaos",
+                    "os": "Ubuntu 18.04"
+                }
+            ]
+        },
+        {
+            "ip": "10.x.3",
+            "name": "Prod Cloud",
+            "hosts": [
+                {
+                    "ip": "10",
+                    "name": "topiary",
+                    "os": "Win Server 2019"
                 },
                 {
-                    "name": "darbus",
-                    "os": "Ubuntu 16.04.6",
-                    "ip": "4",
-                    "services": "apache/web"
+                    "ip": "20",
+                    "name": "sabu",
+                    "os": "Win Server 2019"
+                },
+                {
+                    "ip": "30",
+                    "name": "kayla",
+                    "os": "CentOS 7"
+                },
+                {
+                    "ip": "40",
+                    "name": "avunit",
+                    "os": "Debian 9"
+                },
+                {
+                    "ip": "50",
+                    "name": "tflow",
+                    "os": "CentOS 7"
                 }
             ]
         }
