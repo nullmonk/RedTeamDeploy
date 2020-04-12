@@ -26,7 +26,7 @@ services:
     spin:
         build: https://github.com/degenerat3/javascript-winwheel.git
     pwnboard:
-        build: https://github.com/micahjmartin/pwnboard.git
+        build: https://github.com/rap7or22/pwnboard.git
         environment:
             - FLASK_DEBUG=false
             - FLASK_PORT=5000

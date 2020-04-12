@@ -1,79 +1,91 @@
 {
-    "name": "Irsec2019",
-    "date": "4/20/19",
-    "teams": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "name": "IRSec 2020",
+    "date": "4/24/2020",
+    "teams": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     "networks": [
-        {
-            "name": "internal",
-            "ip": "10.2.x",
-            "hosts": [
-                {
-                    "name": "troy",
-                    "os": "Windows Server 2012 R2",
-                    "ip": "1",
-                    "services": "ad/dns"
-                },
-                {
-                    "name": "gabriella",
-                    "os": "Fedora 29",
-                    "ip": "2",
-                    "services": "mail"
-                },
-                {
-                    "name": "chad",
-                    "os": "Windows Server 2019",
-                    "ip": "3",
-                    "services": "mssql"
-                },
-                {
-                    "name": "jason",
-                    "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
-                },
-                {
-                    "name": "zeke",
-                    "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
-                },
-                {
-                    "name": "martha",
-                    "os": "Solaris 11",
-                    "ip": "DHCP",
-                    "services": "client"
-                }
-            ]
-        },
-        {
-            "name": "cloud",
-            "ip": "10.3.x",
-            "hosts": [
-                {
-                    "name": "sharpay",
-                    "os": "Ubuntu 16.04.6",
-                    "ip": "1",
-                    "services": "docker"
-                },
-                {
-                    "name": "kelsi",
-                    "os": "FreeBSD 12.0",
-                    "ip": "2",
-                    "services": "flask/web"
-                },
-                {
-                    "name": "taylor",
-                    "os": "Centos 7.6.1910",
-                    "ip": "3",
-                    "services": "bind/dns"
-                },
-                {
-                    "name": "darbus",
-                    "os": "Ubuntu 16.04.6",
-                    "ip": "4",
-                    "services": "apache/web"
-                }
-            ]
-        }
+      {
+        "name": "internal",
+        "ip": "10.x.1",
+        "hosts": [
+          {
+            "name": "annebonny",
+            "os": "Windows Server 2019",
+            "ip": "2",
+            "services": "AD, DNS"
+          },
+          {
+            "name": "williamkidd",
+            "os": "Ubuntu 18.04",
+            "ip": "3",
+            "services": "Seedbox"
+          },
+          {
+            "name": "calicojack",
+            "os": "CentOS 7",
+            "ip": "4",
+            "services": "SQL"
+          },
+          {
+            "name": "maryread",
+            "os": "Windows Server 2012 R2",
+            "ip": "5",
+            "services": "Mail"
+          },
+          {
+            "name": "edwardteach",
+            "os": "Windows 10",
+            "ip": "6",
+            "services": "ICMP, RDP"
+          },
+          {
+            "name": "captaincrapo",
+            "os": "Windows 7",
+            "ip": "7",
+            "services": "ICMP, RDP"
+          },
+          {
+            "name": "canoot",
+            "os": "Kali",
+            "ip": "8",
+            "services": "ICMP, SSH"
+          }
+        ]
+      },
+      {
+        "name": "external",
+        "ip": "10.x.2",
+        "hosts": [
+          {
+            "name": "nemo",
+            "os": "Ubuntu 18.04",
+            "ip": "2",
+            "services": "http"
+          },
+          {
+            "name": "gunner",
+            "os": "Debian 9.12.0",
+            "ip": "3",
+            "services": "Docker"
+          },
+          {
+            "name": "laurellabonaire",
+            "os": "Debian 9.12.0",
+            "ip": "4",
+            "services": "http"
+          },
+          {
+            "name": "lockelamora",
+            "os": "Windows Server 2012 R2",
+            "ip": "5",
+            "services": "Seedbox"
+          },
+          {
+            "name": "hook",
+            "os": "FreeBSD",
+            "ip": "6",
+            "services": "DNS"
+          }
+        ]
+      }
     ]
-}
+  }
