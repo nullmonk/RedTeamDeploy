@@ -48,6 +48,12 @@
             "os": "Kali",
             "ip": "8",
             "services": "ICMP, SSH"
+          },
+          {
+            "name": "pfsense",
+            "os": "pfsense",
+            "ip": "254",
+            "services": ""
           }
         ]
       },
