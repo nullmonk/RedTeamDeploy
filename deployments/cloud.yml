@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
     crowdcontrol:
         build: images/crowdcontrol/
@@ -6,7 +6,7 @@ services:
             - "PWNBOARD_URL=${PWNBOARD_URL}:${PWNBOARD_PORT}/generic"
             - FLASK_DEBUG=False
     chainsaw:
-        build: https://github.com/degenerat3/chainsaw.git
+        build: https://github.com/rap7or22/chainsaw.git
         environment:
             - "SYSLOG_HOST=${SAWMILL_HOST}"
             - "SYSLOG_PORT=${SAWMILL_PORT}"
