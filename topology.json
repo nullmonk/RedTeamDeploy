@@ -1,77 +1,83 @@
 {
-    "name": "Irsec2019",
-    "date": "4/20/19",
-    "teams": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "name": "Lockdown V8",
+    "date": "4/29/2020",
+    "teams": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
     "networks": [
         {
             "name": "internal",
-            "ip": "10.2.x",
+            "ip": "10.x.1",
             "hosts": [
                 {
-                    "name": "troy",
-                    "os": "Windows Server 2012 R2",
-                    "ip": "1",
-                    "services": "ad/dns"
+                    "name": "Rogue Windows",
+                    "os": "Ubuntu",
+                    "ip": "10",
+                    "services": "ICMP, SSH"
                 },
                 {
-                    "name": "gabriella",
-                    "os": "Fedora 29",
-                    "ip": "2",
-                    "services": "mail"
+                    "name": "CentOS",
+                    "os": "CentOS",
+                    "ip": "30",
+                    "services": "ICMP"
                 },
                 {
-                    "name": "chad",
-                    "os": "Windows Server 2019",
-                    "ip": "3",
-                    "services": "mssql"
+                    "name": "Ubuntu",
+                    "os": "Ubuntu",
+                    "ip": "40",
+                    "services": "SSH"
                 },
                 {
-                    "name": "jason",
+                    "name": "Windows Core 2019",
+                    "os": "Windows Core 2019",
+                    "ip": "50",
+                    "services": "ICMP, WinRM"
+                },
+                {
+                    "name": "AD",
                     "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
+                    "ip": "60",
+                    "services": "LDAP, DNS"
                 },
                 {
-                    "name": "zeke",
+                    "name": "Windows 10",
                     "os": "Windows 10",
-                    "ip": "DHCP",
-                    "services": "client"
-                },
-                {
-                    "name": "martha",
-                    "os": "Solaris 11",
-                    "ip": "DHCP",
-                    "services": "client"
+                    "ip": "70",
+                    "services": "WinRM"
                 }
             ]
         },
         {
             "name": "cloud",
-            "ip": "10.3.x",
+            "ip": "10.x.2",
             "hosts": [
                 {
-                    "name": "sharpay",
+                    "name": "Web",
                     "os": "Ubuntu 16.04.6",
-                    "ip": "1",
-                    "services": "docker"
-                },
-                {
-                    "name": "kelsi",
-                    "os": "FreeBSD 12.0",
                     "ip": "2",
-                    "services": "flask/web"
+                    "services": "HTTP"
                 },
                 {
-                    "name": "taylor",
-                    "os": "Centos 7.6.1910",
+                    "name": "DB",
+                    "os": "FreeBSD 12.0",
                     "ip": "3",
-                    "services": "bind/dns"
+                    "services": "MySQL"
                 },
                 {
-                    "name": "darbus",
-                    "os": "Ubuntu 16.04.6",
+                    "name": "FTP",
+                    "os": "Centos 7.6.1910",
                     "ip": "4",
-                    "services": "apache/web"
+                    "services": "FTP"
+                },
+                {
+                    "name": "GitLab",
+                    "os": "Ubuntu 16.04.6",
+                    "ip": "5",
+                    "services": "HTTP, SSH"
+                },
+                {
+                    "name": "Gaming",
+                    "os": "Ubuntu 16.04.6",
+                    "ip": "10",
+                    "services": "SSH"
                 }
             ]
         }
