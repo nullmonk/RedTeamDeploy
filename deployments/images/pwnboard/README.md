@@ -8,7 +8,7 @@ The topology is a generic format used by all the different tools for consistency
 Once you have a YAML file with the base topology, a "board" file needs to be generated for the pwnboard. The board file allows for modification of a single IP address and is much more of a verbose configuration file than the generic topology file. The script to convert a topo file into a board file can be downloaded [here](https://github.com/micahjmartin/pwnboard/blob/master/scripts/gen_config.py)
 
 ```
-curl https://github.com/micahjmartin/pwnboard/blob/master/scripts/gen_config.py > gen_config.py
+curl https://raw.githubusercontent.com/micahjmartin/pwnboard/master/scripts/gen_config.py > gen_config.py
 ```
 
 Now convert the topology file using the following command
